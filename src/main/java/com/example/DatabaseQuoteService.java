@@ -14,4 +14,13 @@ public class DatabaseQuoteService implements QuoteService {
     public Quote randomQuote() {
         return this.quoteRepository.findRandomQuote();
     }
+
+    public Quote create(Quote quote){
+        return this.quoteRepository.save(quote);
+    }
+
+    @Override
+    public void delete(Integer quoteId) {
+        this.quoteRepository.deleteById(quoteId);
+    }
 }
