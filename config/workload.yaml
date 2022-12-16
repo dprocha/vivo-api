@@ -16,6 +16,9 @@ spec:
       url: https://github.com/dprocha/vivo-api.git
       ref:
         branch: main
+  env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: postgres
   serviceClaims:
     - name: postgres
       ref:
