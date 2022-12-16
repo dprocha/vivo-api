@@ -2,6 +2,7 @@ apiVersion: sql.tanzu.vmware.com/v1
 kind: Postgres
 metadata:
   name: vivo-api-postgres
+  namespace: service-instances
 spec:
   #
   # Global features
