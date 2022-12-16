@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Random;
 import java.util.UUID;
 
 @RestController
@@ -22,9 +23,10 @@ public class QuoteController {
         this.environment = environment;
     }
 
-    @PostMapping(value = {"/create/{author}"}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = {"/create/{author}"})
     public ResponseEntity<?> createQuote(@PathVariable(value = "author") String author) {
         Quote quote = new Quote();
+        quote.setId(new Random().nextInt(10000));
         quote.setQuote(UUID.randomUUID().toString());
         quote.setAuthor(author);
         quote.setK8s(CloudPlatform.KUBERNETES.isActive(environment));
